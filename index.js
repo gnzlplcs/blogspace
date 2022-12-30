@@ -1,17 +1,21 @@
 /**
-Challenge:
+ Challenge:
 
-Fetch a list of todos from the JSON Placeholder API:
+ GET a list of blog from the JSON Placeholder API.
 
-BaseURL: https://apis.scrimba.com/jsonplaceholder/
-Endpoint: /todos
+ BaseURL: https://apis.scrimba.com/jsonplaceholder/
+ Endpoint: /posts
 
-This time however, explicitly set the request method to "GET"
-console.log the results
-*/
+ Since there's so many posts, let's limit the array to just 5 items.
+ You can use the `.slice()` array method to just grab the first 5 objects
+ from the data array that comes back from the API
+ */
 
-fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
-  method: "GET"
+fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+  method: "GET",
 })
-  .then(response => response.json())
-  .then(data => console.log(data))
+  .then((response) => response.json())
+  .then((data) => {
+    const arrFive = data.slice(0, 5);
+    console.log(arrFive);
+  });
